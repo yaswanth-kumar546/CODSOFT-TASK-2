@@ -1,0 +1,38 @@
+NAME: Yejarla Yaswanth Kumar
+COMPANY: CodSoft
+DOMAIN: Artificial Intelligence
+Intern Id: CS25AZ1120
+DURATION: 1st February  to 28th feburary
+
+
+OVER VIEW OF THIS TASK 2:
+TASK 2: Tic-Tac-Toe AI
+This project implements an unbeatable AI for the classic Tic-Tac-Toe game using the Minimax algorithm. The AI is designed to always either win or tie against the human player, demonstrating basic game theory and search algorithms.
+
+FEATURES:
+   * Minimax Algorithm: Utilizes the Minimax algorithm with Alpha-Beta Pruning to ensure the AI makes optimal moves.
+
+   * Human vs AI: Allows a human player to play against the AI.
+
+   * Unbeatable AI: The AI is programmed to never lose, providing a challenging gameplay experience.
+
+PROJECT STRUCTURE:
+   * tic_tac_toe_ai.py: Contains the main game loop and AI logic.
+REQUIRED LIBRARIES:
+   * pip install numpy
+   * python tic_tac_toe_ai.py
+
+[['-' '-' '-']
+ ['-' '-' '-']
+ ['-' '-' '-']]
+Your move (row col): 1 1
+[['-' '-' '-']
+ ['-' 'X' '-']
+ ['-' '-' '-']]
+AI is making a move...
+[['-' '-' 'O']
+ ['-' 'X' '-']
+ ['-' '-' '-']]
+...
+Game Over
+Contributions are welcome! Feel free to fork this repository and submit pull requests.
