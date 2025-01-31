@@ -1,0 +1,54 @@
+#Welcome to the ai tic tic tac toe Classic Game
+
+#Import this libraries
+import numpy as np
+# Here defining the Utility Functions
+def check_winner(board, player):
+    return any(all(board[i] == player) for i in range(3)) or \
+           any(all(board[:, i] == player) for i in range(3)) or \
+           all(board.diagonal() == player) or \
+           all(np.fliplr(board).diagonal() == player)
+#MiniMax Algorithm
+def minimax(board, is_max):
+    if check_winner(board, 'O'): return 1
+    if check_winner(board, 'X'): return -1
+    if '-' not in board: return 0
+
+    best = -np.inf if is_max else np.inf
+    for i in range(3):
+        for j in range(3):
+            if board[i, j] == '-':
+                board[i, j] = 'O' if is_max else 'X'
+                score = minimax(board, not is_max)
+                board[i, j] = '-'
+                best = max(score, best) if is_max else min(score, best)
+    return best
+# Finding the best move
+def best_move(board):
+    move = (-1, -1)
+    best_score = -np.inf
+    for i in range(3):
+        for j in range(3):
+            if board[i, j] == '-':
+                board[i, j] = 'O'
+                score = minimax(board, False)
+                board[i, j] = '-'
+                if score > best_score:
+                    best_score = score
+                    move = (i, j)
+    return move
+# This is the Game Loop
+def play_game():
+    board = np.full((3, 3), '-')
+    while True:
+        print(board)
+        row, col = map(int, input("Your move (row col): ").split())
+        board[row, col] = 'X'
+        if check_winner(board, 'X') or '-' not in board: break
+        row, col = best_move(board)
+        board[row, col] = 'O'
+        if check_winner(board, 'O') or '-' not in board: break
+    print(board)
+    print("Game Over")
+
+play_game()
